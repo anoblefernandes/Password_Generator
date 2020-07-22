@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+      <script>
+        // Creates a confirm box which takes in true or false, do they need a new password.
+        var confirmPasswordGenerator = confirm("Do you need to generate a new password?");
+      
+        // If the user needs a password (confirmPasswordGenerator === true) we run the following code block.
+        if (confirmPasswordGenerator) {
+        alert("Select the length of your password by choosing between 8 and 128 characters, and then choose from among the other password criteria provided.  Finally, click the Generate Password button to display your new unique password!");
+        }
+      
+        // If the above condition isn't met (confirmPasswordGenerator !== true), run the following block of code instead.
+        else {
+        alert("Have a Nice Day!") 
+        alert("If you change your mind, click the restart link at the top of the page.");
+        }
+      </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href=index.html>Password Generator - Restart</a></h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Choose Among the Following Password Criteria; then, Click Generate Password!</h2>
+          <div class="settings">
+              <div class="setting">
+                  <label for="length">Password Length</label>
+                  <input type="number" id="length" min="8" max="128" value="8" />
+              </div>
+              <div class="setting">
+                  <label for="upperCase">Include Uppercase Letters</label>
+                  <input type="checkbox" id="upperCase" checked />
+              </div>
+              <div class="setting">
+                <label for="lowerCase">Include Lowercase Letters</label>
+                <input type="checkbox" id="lowerCase" checked />
+              </div>
+              <div class="setting">
+                <label for="numbers">Include Numbers</label>
+                <input type="checkbox" id="numbers" checked />
+              </div>
+              <div class="setting">
+                <label for="specialChar">Include Special Characters</label>
+                <input type="checkbox" id="specialChar" checked />
+              </div>
+        </div>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="newPassword"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button onclick = "randomRun()">  
+            Generate Password
+        </button> 
+          
+        <script> 
+            var el_down = document.getElementById("newPassword"); 
+              
+            function randomRun() { 
+                el_down.innerHTML =  
+                    Math.random().toString(36).slice(2) +  
+                    Math.random().toString(36) 
+                        .toUpperCase().slice(2); 
+                }  
+         
+        </script>
+        <script src="jsfile.js"></script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
